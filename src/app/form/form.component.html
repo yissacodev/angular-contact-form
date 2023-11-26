@@ -1,51 +1,53 @@
 <div class="card">
     <div class="card-body">
-        <div class="mb-2">
-            <label class="form-label">Name</label>
-            <input [formControl]="name" type="text" class="form-control">
-
-            <div class="alert alert-danger mt-2" [hidden]="name.valid || name.pristine">
-                Field is required
+        <form name="contactForm" (submit)="$event" >
+            <div class="mb-2">
+                <label class="form-label">Name</label>
+                <input [formControl]="name" type="text" class="form-control">
+    
+                <div class="alert alert-danger mt-2" [hidden]="name.valid || name.pristine">
+                    Field is required
+                </div>
             </div>
-        </div>
-        <div class="mb-2">
-            <label class="form-label">Last</label>
-            <input [formControl]="last" type="text" class="form-control">
-        </div>
-        <div class="mb-2">
-            <label class="form-label">Email</label>
-            <input [formControl]="email" type="email" class="form-control">
-
-            <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
-                <span *ngIf="email.errors?.['required']">Write an valid email</span>
+            <div class="mb-2">
+                <label class="form-label">Last</label>
+                <input [formControl]="last" type="text" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input [formControl]="email" type="email" class="form-control">
+    
+                <div class="alert alert-danger mt-2" [hidden]="email.valid || email.pristine">
+                    <span *ngIf="email.errors?.['required']">Write an valid email</span>
+                
+                    <span *ngIf="email.errors?.['email']">Field is required</span>
+                </div>
+            </div>
+    
+            <div class="mb-2">
+                <label class="form-label">Phone</label>
+                <input [formControl]="phone" type="tel" class="form-control">
+            </div>
+    
             
-                <span *ngIf="email.errors?.['email']">Field is required</span>
+            <div class="mb-2">
+                <label class="form-label">Area</label>
+                <select [formControl]="area" id="" class="form-select">
+                    <option value="Managment department">Managment department</option>
+                    <option value="Marketing department">Managment department</option>
+                    <option value="RRHH department">Human Resources department</option>
+                </select>
             </div>
-        </div>
-
-        <div class="mb-2">
-            <label class="form-label">Phone</label>
-            <input [formControl]="phone" type="tel" class="form-control">
-        </div>
-
-        
-        <div class="mb-2">
-            <label class="form-label">Phone</label>
-            <select [formControl]="area" id="">
-                <option value="Managment department">Managment department</option>
-                <option value="Marketing department">Managment department</option>
-                <option value="RRHH department">Human Resources department</option>
-            </select>
-        </div>
-
-        <div class="mb-2">
-            <label class="form-label">Phone</label>
-            <textarea [formControl]="msg" id="msg" cols="30" rows="10"></textarea>
-        </div>
-
-        <div class="mb-2">
-            <input name="" type="submit" value="Submit">
-        </div>
+            
+            <div class="mb-2">
+                <label class="form-label">Message</label><br>
+                <textarea class="form-control" [formControl]="msg" id="msg" cols="30" rows="10"></textarea>
+            </div>
+    
+            <div class="d-flex justify-content-center mb-2">
+                <button type="submit" class="btn btn-primary mb-3">Send</button>
+            </div>
+        </form>
     </div>
 </div>
 

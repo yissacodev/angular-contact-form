@@ -13,4 +13,12 @@ export class FormComponent {
   phone = new FormControl('');
   area = new FormControl('');
   msg = new FormControl('');
+
+  submit($event: any){
+    $event.preventDefault();
+    $event.target.
+
+  
+    console.log();
+  }
 }
